@@ -46,19 +46,19 @@ MonoBehaviour:
     isComplete: 0
   - label:
       name: "\u7D27\u6025\u4EFB\u52A1"
-      color: {r: 1, g: 0, b: 0, a: 1}
+      color: {r: 0.77931595, g: 1, b: 0, a: 1}
       labelIndex: 1
     taskName: "\u7D27\u6025\uFF0C\u653E\u5F03"
     isComplete: 0
   - label:
       name: "\u7D27\u6025\u4EFB\u52A1"
-      color: {r: 1, g: 0, b: 0, a: 1}
+      color: {r: 0.77931595, g: 1, b: 0, a: 1}
       labelIndex: 1
     taskName: "\u7D27\u6025\uFF0C\u8FDB\u6765\u6492\u5927"
     isComplete: 0
   - label:
       name: "\u7D27\u6025\u4EFB\u52A1"
-      color: {r: 1, g: 0, b: 0, a: 1}
+      color: {r: 0.77931595, g: 1, b: 0, a: 1}
       labelIndex: 1
     taskName: "\u6D4B\u8BD5"
     isComplete: 1

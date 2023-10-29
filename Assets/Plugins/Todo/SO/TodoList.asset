@@ -28,6 +28,9 @@ MonoBehaviour:
   - lableName: "\u9700\u8981\u6CE8\u610F"
     color: {r: 1, g: 1, b: 1, a: 1}
     labelIndex: 4
+  - lableName: "\u5367\u69FD\u6CE5\u9A6C"
+    color: {r: 1, g: 1, b: 1, a: 1}
+    labelIndex: 5
   tasks:
   - taskName: 123
     lableIndex: 1
@@ -41,5 +44,9 @@ MonoBehaviour:
     lableIndex: 0
     isComplete: 0
     creationDate: 2023-10-26
+  - taskName: "123\u6211\u8349"
+    lableIndex: 5
+    isComplete: 0
+    creationDate: 2023-10-27
   todoSetting:
     isAutoCreate: 0

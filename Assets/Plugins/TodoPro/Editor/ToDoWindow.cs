@@ -11,7 +11,7 @@ namespace ToDoPro
 		private ToDoList taskSO;
 		private static ToDoWindow _window;
 
-		private string listSOPath = "Assets/Plugins/TodoPro/ToDoData.asset";
+		private static string listSOPath;
 		
 		private int currTaskGroupIndex = 0; // 当前所选组
 		private int currTaskListIndex = 0;  // 当前所选列表
@@ -33,6 +33,14 @@ namespace ToDoPro
 			_window.titleContent = new GUIContent("ToDoPro");
 			// 当场景发生变化，是否重新绘制
 			_window.autoRepaintOnSceneChange = false;
+		}
+
+		[PreferenceItem("ToDo Setting")]
+		private static void SelfPreferenceItem()
+		{
+			EditorGUILayout.LabelField("ToDo源SO：", EditorStyles.boldLabel);
+			listSOPath = EditorGUILayout.TextField(listSOPath, GUILayout.Height(40));
+			EditorGUILayout.Space();
 		}
 
 		public void OnGUI()

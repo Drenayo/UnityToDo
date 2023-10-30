@@ -30,7 +30,7 @@ namespace ToDoPro
 		public static void Init()
 		{
 			_window = (ToDoWindow)EditorWindow.GetWindow(typeof(ToDoWindow));
-			_window.titleContent = new GUIContent("ToDoPro");
+			_window.titleContent = new GUIContent("待办");
 			// 当场景发生变化，是否重新绘制
 			_window.autoRepaintOnSceneChange = false;
 		}
@@ -74,9 +74,12 @@ namespace ToDoPro
 			currTaskList = taskSO.listGroup[currTaskGroupIndex].taskList[currTaskListIndex];
 
 			// 使用水平布局，后续元素将横向排列
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("小梦的待办列表:", EditorStyles.boldLabel);
+			//EditorGUILayout.BeginHorizontal();
+			//EditorGUILayout.LabelField("小梦的", EditorStyles.centeredGreyMiniLabel);
+			//EditorGUILayout.EndHorizontal();
+
 			// 创建一个下拉列表，index代表当前索引，labels代表需要下拉的项
+			EditorGUILayout.BeginHorizontal();
 			currTaskGroupIndex = EditorGUILayout.Popup(currTaskGroupIndex, taskGroup);
 			currTaskListIndex = EditorGUILayout.Popup(currTaskListIndex, taskList);
 			EditorGUILayout.EndHorizontal();

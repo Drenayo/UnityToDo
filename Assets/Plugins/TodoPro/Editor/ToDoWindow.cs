@@ -11,7 +11,7 @@ namespace ToDoPro
 		private ToDoList taskSO;
 		private static ToDoWindow _window;
 
-		private static string listSOPath;
+		private static string listSOPath = "Assets/_WorkUtils/Plugins/TodoPro/Data/ToDo.asset";
 		
 		private int currTaskGroupIndex = 0; // 当前所选组
 		private int currTaskListIndex = 0;  // 当前所选列表
@@ -26,7 +26,7 @@ namespace ToDoPro
 		private int displayCount = 0;
 		private GUILayoutOption heightOption;
 
-		[MenuItem("Tools/New Todo Window")]
+		[MenuItem("Tools/ToDo窗口")]
 		public static void Init()
 		{
 			_window = (ToDoWindow)EditorWindow.GetWindow(typeof(ToDoWindow));
@@ -35,13 +35,13 @@ namespace ToDoPro
 			_window.autoRepaintOnSceneChange = false;
 		}
 
-		[PreferenceItem("ToDo Setting")]
-		private static void SelfPreferenceItem()
-		{
-			EditorGUILayout.LabelField("ToDo源SO：", EditorStyles.boldLabel);
-			listSOPath = EditorGUILayout.TextField(listSOPath, GUILayout.Height(40));
-			EditorGUILayout.Space();
-		}
+		//[PreferenceItem("ToDo Setting")]
+		//private static void SelfPreferenceItem()
+		//{
+		//	EditorGUILayout.LabelField("ToDo源SO：", EditorStyles.boldLabel);
+		//	listSOPath = EditorGUILayout.TextField(listSOPath, GUILayout.Height(40));
+		//	EditorGUILayout.Space();
+		//}
 
 		public void OnGUI()
 		{
@@ -133,12 +133,18 @@ namespace ToDoPro
 				currTasks.Add(new Task(newTask, currTaskList.listSign, GetDate()));
 				newTask = "";
 				GUI.FocusControl(null);
-			}
-			if (GUI.changed)
-			{
+
 				EditorUtility.SetDirty(taskSO);
 				AssetDatabase.SaveAssets();
 			}
+
+
+			// 时刻检查并保存，太卡，改成了当标签被编辑时，才被保存
+			//if (GUI.changed)
+			//{
+			//	EditorUtility.SetDirty(taskSO);
+			//	AssetDatabase.SaveAssets();
+			//}
 		}
 
 		// 创建未完成待办显示项
@@ -189,6 +195,7 @@ namespace ToDoPro
 
 		void OnDestroy()
 		{
+			if(taskSO!=null)
 			EditorUtility.SetDirty(taskSO);
 			AssetDatabase.SaveAssets();
 		}
